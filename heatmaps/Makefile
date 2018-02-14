@@ -48,7 +48,6 @@ original.dat: ${INPUT_PCAP}
 	mv $@_ $@
 
 cryptopan.${N}.dat: ${INPUT_PCAP}
-	time \
 	${DNSANON_CMD} -p m -a addr -k cryptopan.${N}.key -i ${INPUT_PCAP} -o - \
 	| grep -v '^#' \
 	| awk '{print $$3}' \
